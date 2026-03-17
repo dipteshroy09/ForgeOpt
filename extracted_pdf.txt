@@ -1,0 +1,683 @@
+
+--- PAGE 3 ---
+AI-Driven Manufacturing Intelligence — Project Planning Document   |   Page 3
+01 | PROJECT OVERVIEW & HACKATHON CONTEXT
+Project Name
+AI-Driven Manufacturing Intelligence: Adaptive Multi-Objective Optimization of Industrial Batch
+Process and Energy Pattern Analytics for Asset Reliability, Process Optimization, and Carbon
+Management.
+The Core Problem We Are Solving
+Modern manufacturing facilities run production in batches. Each batch consumes energy, produces a
+quality of output, and generates carbon emissions. Currently, most factories manage this with fixed rules
+and only look at data after the batch is complete. There is no system that optimizes in real-time, learns
+from history, and gives operators actionable guidance during the batch run itself.
+What Exists Today (The Problem)
+Fixed KPIs that do not adapt to variability
+Post-process monitoring only — too late to
+correct
+No connection between energy patterns and
+quality
+Operator decisions are never captured or
+reused
+No learning from batch to batch
+What We Are Building (The Solution)
+Dynamic golden signatures per objective
+combination
+Real-time deviation detection during the
+batch
+Energy derived from sensor data and linked
+to quality
+Human-in-the-loop panel that logs every
+decision
+Continuous improvement when new batches
+beat records
+Hackathon Structure & Our Target Round
+Round
+Format
+Our Goal
+Round 1
+Idea Submission
+Qualify to Round 2
+Round 2
+(Current)
+PDF Prototype Documentation —
+Elimination Round
+Clear elimination,
+advance to finals
+Round 3 (Finals)
+Live Offline Presentation to Judges
+Win
+
+--- PAGE 4 ---
+AI-Driven Manufacturing Intelligence — Project Planning Document   |   Page 4
+02 | TRACK B — WHAT WE ARE BUILDING
+Why Track B (Optimization Engine)
+Track A focuses on predictive modelling — building ML models to forecast quality and energy. Track B
+focuses on the optimization engine — using data to find the best batch profiles, store them as golden
+signatures, and guide operators in real time. We chose Track B because it plays to our strengths: strong
+system design, clear visual storytelling, and the ability to work with our 60-batch dataset without requiring
+massive training data.
+The GPS Analogy — Understanding Our System
+Think of our system exactly like a GPS for factory operations. A GPS does not just show where you
+are. It compares your route to the optimal one, recalculates in real-time when you deviate, learns from
+traffic patterns, and lets you choose your priority — fastest route vs. least fuel. Our system does
+exactly this for manufacturing batches. Current position = live sensor readings during batch Optimal
+route = the golden signature Recalculate = deviation detection + correction Your priority = quality
+vs. energy preset selection
+The Four Core Requirements of Track B
+Requirement
+What It Means
+Our Approach
+Golden 
+Signature
+Framework
+Store optimal parameter sets for
+different goal combinations
+4 
+presets 
+with 
+3-layer
+signatures from real data
+Continuous Learning
+Update benchmarks when new batch
+beats current signature
+Automatic score comparison
++ 
+operator 
+approval
+workflow
+Adaptive Optimization
+Real-time energy and emission goal
+optimization
+Live deviation detection with
+graduated alert bands
+Human-in-the-Loop
+Accept/reject 
+changes, 
+reprioritize
+targets, reuse decisions
+Operator 
+panel 
+with 
+full
+decision logging
+
+--- PAGE 5 ---
+AI-Driven Manufacturing Intelligence — Project Planning Document   |   Page 5
+03 | DATASET ANALYSIS — UNDERSTANDING OUR
+DATA
+We Have Two Dataset Files — Both Are Essential
+A critical early decision was understanding that both files serve fundamentally different and
+complementary purposes. Using only one would give an incomplete picture. The analogy: the production
+file is the report card, the process file is the CCTV footage.
+File 1: batch_production_data.xlsx — The Report Card
+Column
+Type
+Role In Our System
+Batch_ID (T001–T060)
+Identifier
+Links production data to process data
+Granulation_Time
+Input / Setting
+Part of golden signature Layer 1
+Binder_Amount
+Input / Setting
+Part of golden signature Layer 1
+Drying_Temp
+Input / Setting
+Part of golden signature Layer 1
+Drying_Time
+Input / Setting
+Part of golden signature Layer 1
+Compression_Force
+Input / Setting
+Part of golden signature Layer 1
+Machine_Speed
+Input / Setting
+Part of golden signature Layer 1
+Lubricant_Conc
+Input / Setting
+Part of golden signature Layer 1
+Moisture_Content
+Input / Setting
+Part of golden signature Layer 1
+Tablet_Weight
+Output / Quality
+Used in quality scoring
+Hardness (Newtons)
+Output / Quality
+Used in quality scoring (10% weight)
+Friability (%)
+Output / Quality
+Used in quality scoring (20% weight)
+Disintegration_Time
+Output / Quality
+Used in quality scoring (15% weight)
+Dissolution_Rate (%)
+Output / Quality
+Used in quality scoring (30% weight)
+Content_Uniformity (%)
+Output / Quality
+Used in quality scoring (25% weight)
+60 batches total. One row per batch. This file tells us WHAT the outcome was.
+
+--- PAGE 6 ---
+AI-Driven Manufacturing Intelligence — Project Planning Document   |   Page 6
+File 2: batch_process_data.xlsx — The CCTV Footage
+60 sheets — one per batch (Batch_T001 through Batch_T060). Each sheet contains minute-by-minute
+sensor readings throughout the entire batch run, ranging from 195 to 286 minutes per batch. All batches
+pass through the same 8 production phases.
+Phase 1: Preparation
+Phase 2: Granulation
+Phase 3: Drying
+Phase 4: Milling
+Phase 5: Blending
+Phase 6: Compression
+Phase 7: Coating
+Phase 
+8: 
+Quality
+Testing
+Sensor
+What It Measures
+How We Use It
+Temperature_C
+Machine/environment temp during
+each phase
+Deviation detection in Drying,
+Granulation
+Pressure_Bar
+Pressure applied during process
+Deviation 
+detection 
+in
+Compression phase
+Humidity_Percent
+Ambient humidity during batch
+Affects 
+moisture-sensitive
+phases
+Motor_Speed_RPM
+Speed of motor/machinery
+Deviation 
+in 
+Granulation,
+Milling, Blending
+Compression_Force_
+kN
+Force applied during compression
+Critical 
+— 
+directly 
+affects
+Hardness
+Flow_Rate_LPM
+Material/fluid flow rate
+Affects binder distribution in
+Granulation
+Power_Consumption_
+kW
+ENERGY — power drawn per
+minute
+PRIMARY source for energy
+calculation
+Vibration_mm_s
+Machine vibration level
+Asset health indicator — early
+warning
+Power_Consumption_kW is highlighted because it is the source of our energy metric — computed from this file.
+
+--- PAGE 7 ---
+AI-Driven Manufacturing Intelligence — Project Planning Document   |   Page 7
+04 | DOMAIN KNOWLEDGE — PHARMACEUTICAL
+STANDARDS
+What Industry Are We In?
+After analysing the dataset columns — Granulation, Binder Amount, Drying, Compression, Hardness,
+Friability, Dissolution Rate, Content Uniformity — we identified this as pharmaceutical tablet
+manufacturing. This is a highly regulated industry with established international quality standards (USP,
+BP, ICH guidelines). These standards define exactly what "good" looks like for every quality metric.
+The Hardness Unit Clarification — An Important Discovery
+Issue Found: Our dataset shows Hardness values of 85–110. International pharma standards define
+acceptable tablet hardness as 4–10 kg. These seemed incompatible. Resolution: The data is
+calibrated to the real world. The unit is Newtons (N), not kilograms. Conversion: 1 kgf = 9.8 N. 85 N ÷
+9.8 = 8.67 kgf  Within standard (4–10 kg) 95 N ÷ 9.8 = 9.69 kgf  Within standard (4–10 kg) 110 N ÷
+9.8 = 11.2 kgf — Borderline but acceptable Conclusion: The dataset is genuine and accurate. We
+will treat Hardness as Newton values and define our "ideal range" based on our own dataset
+distribution, not external kg standards.
+Quality Standards Mapped to Our Dataset Columns
+Our Column
+What It Measures
+Good Range
+(Standard)
+Our Scoring
+Weight
+Dissolution_Rate
+(%)
+% of drug released into solution
+— directly affects how much
+drug enters the bloodstream
+≥ 85% within 60
+min
+30% — highest
+weight, patient
+safety critical
+Content_Uniformit
+y (%)
+Consistency of drug content
+across tablets — ensures every
+tablet has the right dose
+85% – 115% of
+label
+25% — dosing
+consistency
+Friability (%)
+% 
+weight 
+lost 
+from
+chipping/breaking 
+during
+handling — tablet must survive
+shipping
+Must not exceed
+1%
+20% 
+—
+structural
+integrity
+
+--- PAGE 8 ---
+AI-Driven Manufacturing Intelligence — Project Planning Document   |   Page 8
+Disintegration_Tim
+e (min)
+Time for tablet to break down in
+fluid — affects how fast drug is
+released
+≤ 
+30 
+min 
+for
+uncoated
+15% — release
+speed
+Hardness (N)
+Force required to break the
+tablet — structural strength
+indicator
+~40–110 
+N
+(dataset range)
+10% 
+—
+physical
+durability
+KEY PRINCIPLE: Our golden signature is derived empirically from the best-performing batch in our
+own dataset. We use industry standards to understand the meaning of each metric, but our
+benchmark values come from our real data.
+
+--- PAGE 9 ---
+AI-Driven Manufacturing Intelligence — Project Planning Document   |   Page 9
+05 | THE SCORING SYSTEM DESIGN
+Chosen Approach: Weighted Scoring + Pareto Visualisation
+We evaluated three approaches to turn multiple quality metrics into a comparable score for each batch.
+We selected Option 2 (Weighted Scoring) for the core logic, combined with Option 3 (Pareto Visualisation)
+for the presentation layer.
+Option 1: Pass/Fail Scoring
+• Each metric gets 0 or 1 based on whether it hits the standard
+• Total score = sum of passes
+• Simple but loses nuance — a batch that scores 99% dissolves the same as 85%
+Option 2 : Weighted Composite Scoring (OUR CHOICE)
+• Each metric normalized to 0-100 scale
+• Multiplied by its assigned weight
+• Summed to give a final batch quality score 0-100
+• Handles nuance — a 99% dissolution scores higher than 85%
+Option 3 : Pareto Frontier Visualisation (OUR PRESENTATION LAYER)
+• Does not collapse to one score — shows the tradeoff
+• Plots Quality Score vs. Energy Consumption for all 60 batches
+• Pareto-optimal batches = those where no other batch is better on BOTH dimensions
+• Visually powerful for the PDF submission
+The Four Golden Signature Presets
+The user selects a preset combination of objectives. Each preset produces a different golden signature
+because the "best batch" changes depending on what you optimise for.
+#
+Preset Name
+Quality Weight
+Energy Weight
+Use Case
+1
+Best Quality Only
+100%
+0%
+When energy cost is
+not a concern
+
+--- PAGE 10 ---
+AI-Driven Manufacturing Intelligence — Project Planning Document   |   Page 10
+2
+Best 
+Quality 
++ 
+Lowest
+Energy
+60%
+40%
+Showcase preset —
+balanced optimisation
+3
+Lowest Energy Only
+0%
+100%
+When 
+sustainability
+targets are priority
+4
+Custom (User-Defined)
+User sets
+User sets
+Full operator control
+via slider
+Preset 2 (highlighted) is our primary showcase — it represents the hackathon's core theme of balancing quality with
+energy efficiency.
+
+--- PAGE 11 ---
+AI-Driven Manufacturing Intelligence — Project Planning Document   |   Page 11
+06 | ENERGY COMPUTATION STRATEGY
+Why Energy Is Not In The Production File
+The production data file has no energy column. This is not a gap in the data — it is by design. Energy must
+be computed from the time-series process data. This is actually one of the strongest aspects of our
+system: we genuinely combine both datasets in a meaningful way, not just use one and ignore the other.
+The Formula
+Total Energy per Batch (kWh) = Sum of all Power_Consumption_kW readings across all phases ÷ 60
+Explanation: Power_Consumption_kW gives us kilowatts at each minute. Summing all minutes and
+dividing by 60 converts from kW-minutes to kWh. Example — Batch T001: Duration: 210 minutes
+Total kW readings summed across all minutes: ~4,582 kW-minutes Total Energy = 4,582 ÷ 60 = 76.4
+kWh for that batch
+Energy Scoring — How We Convert kWh to a 0-100 Score
+Lower energy is better. To make energy comparable to the quality score (which is higher = better), we
+invert the energy score. The batch with the lowest energy across all 60 batches gets a score of 100, the
+highest gets 0, and all others are scaled linearly between.
+Energy Score = 100 × (max_energy - batch_energy) ÷ (max_energy - min_energy)
+Why This Is A Strength For Our Presentation
+What we show judges:
+Two batches with the same quality score
+One used 287 kWh, one used 412 kWh
+The 287 kWh batch is the golden signature
+for Preset 2
+Energy saving = 125 kWh per batch
+At 1,000 batches/year = 125,000 kWh saved
+Why judges will notice:
+Real numbers from real data — not
+hypothetical
+Both datasets are genuinely used together
+Energy insight is invisible without our
+computation
+Directly addresses the carbon management
+objective
+Scalability story writes itself
+
+--- PAGE 12 ---
+AI-Driven Manufacturing Intelligence — Project Planning Document   |   Page 12
+07 | GOLDEN SIGNATURE FRAMEWORK
+Definition
+A golden signature is the complete profile of the highest-scoring batch for a given objective preset. It
+contains everything needed for an operator to replicate that batch and for the system to detect when a new
+batch is deviating from it. Each of our 4 presets has its own golden signature — the "best batch" changes
+depending on what you are optimising for.
+The Three-Layer Architecture of a Golden Signature
+LAYER 1: The Settings Profile
+Source: Production data file
+The input parameters the operator set before starting the batch.
+→ Granulation Time
+→ Binder Amount
+→ Drying Temperature
+→ Drying Time
+→ Compression Force
+→ Machine Speed
+→ Lubricant Concentration
+→ Moisture Content
+Answers the question: "What did the operator set to achieve this result?"
+
+--- PAGE 13 ---
+AI-Driven Manufacturing Intelligence — Project Planning Document   |   Page 13
+LAYER 2: The Process Fingerprint
+Source: Process data file (aggregated per phase)
+The characteristic behaviour of sensors across each of the 8 production phases. Not stored as raw
+minute-by-minute data — aggregated to mean/max per phase.
+→ Avg Temperature per phase
+→ Avg Pressure per phase
+→ Avg Motor Speed per phase
+→ Avg Compression Force per phase
+→ Avg Flow Rate per phase
+→ Avg Power Consumption per phase
+→ Max Vibration per phase
+Answers the question: "What did the machine actually do during this batch?"
+LAYER 3: The Outcome Score
+Source: Computed from production data + energy calculation
+The final quality and energy scores that qualified this batch as golden.
+→ Dissolution Rate (30%)
+→ Content Uniformity (25%)
+→ Friability (20%)
+→ Disintegration Time (15%)
+→ Hardness (10%)
+→ Total Energy (kWh)
+→ Composite Quality Score
+→ Composite Combined Score
+Answers the question: "Why is this batch the golden one?"
+WHY ALL THREE LAYERS MATTER: Layer 1 tells an operator what to set before the batch starts.
+Layer 2 tells them what the machine should look like during the batch. Layer 3 tells them what
+score they need to beat to update the golden signature. Without all three, the system cannot do
+real-time guidance.
+
+--- PAGE 14 ---
+AI-Driven Manufacturing Intelligence — Project Planning Document   |   Page 14
+08 | DEVIATION DETECTION & CORRECTION ENGINE
+How Deviation Detection Works
+As a new batch runs, its live sensor readings are compared against the golden signature Layer 2 (process
+fingerprint) for the current phase. The deviation is expressed as a percentage difference from the golden
+signature value for that sensor in that phase.
+Deviation (%) = |Live Value − Golden Value| ÷ Golden Value × 100
+The Four-Band Alert System
+Band
+Deviation
+Range
+Severity
+System Action
+Operator Action
+GREEN
+0% – 10%
+Normal
+No alert. Log only.
+None required
+YELLO
+W
+10% – 20%
+Warning
+Flag 
+on 
+dashboard.
+Suggest 
+minor
+correction.
+Review and consider
+adjustment
+ORANG
+E
+20% – 30%
+Significant
+Alert 
+operator.
+Recommend 
+specific
+correction.
+Act 
+on
+recommendation
+RED
+30%+
+Critical
+Urgent alert. Immediate
+intervention required.
+Stop 
+and 
+correct
+immediately
+The Correction Engine Logic
+When a deviation is detected, the correction recommendation is direct and actionable. The system
+compares the current live value to the golden signature value and tells the operator exactly what to adjust
+and in which direction.
+Example Correction Recommendation: Phase: Drying | Sensor: Temperature_C | Time: Minute 84
+Golden Signature Value: 63.2°C Current Live Value: 78.8°C Deviation: +24.7% → ORANGE ALERT
+RECOMMENDATION: Temperature in Drying phase is running 24.7% above golden signature.
+Recommended action: Reduce drying temperature from 78.8°C toward 63.2°C. This deviation pattern
+was seen in Batch T031 which resulted in reduced Dissolution Rate.
+
+--- PAGE 15 ---
+AI-Driven Manufacturing Intelligence — Project Planning Document   |   Page 15
+09 | HUMAN-IN-THE-LOOP DESIGN
+Why This Is Our Biggest Differentiator
+The problem statement explicitly requires human-in-the-loop functionality. Most competing teams will build
+the optimization logic and forget this requirement entirely. Our system treats the operator not as a passive
+observer but as an active participant whose decisions shape how the system evolves over time.
+The Three Required Human-in-the-Loop Functions
+Function 1: Accept or Reject Proposed Changes
+• When the correction engine recommends a parameter adjustment, the operator sees it on their
+dashboard
+• They can Accept — the system logs the acceptance and tracks whether the correction improved
+the batch
+• They can Reject — the system asks for a reason (free text or dropdown)
+• The decision is stored with timestamp, batch ID, phase, and reason
+• This is critical — without rejection data, the system cannot learn what does not work in practice
+Function 2: Reprioritise Targets Mid-Batch
+• At any point during a batch run, the operator can switch the active golden signature preset
+• Example: Started on "Best Quality Only" but energy costs are spiking — switch to "Best Quality +
+Lowest Energy"
+• The system immediately recalculates which golden signature applies and adjusts all deviation
+thresholds
+• This mid-batch reprioritisation is exactly what the problem statement asks for
+• In our prototype this is shown as a preset selector that updates the comparison view live
+
+--- PAGE 16 ---
+AI-Driven Manufacturing Intelligence — Project Planning Document   |   Page 16
+Function 3: Store Decisions and Reuse
+• Every accept/reject decision is written to the decision log with full context
+• Over time, patterns emerge — if an operator keeps rejecting temperature corrections in Drying,
+the system notes it
+• Future batches can use this log to give smarter recommendations that account for known
+operator preferences
+• In our prototype: a decision log table showing 5-6 pre-built realistic scenarios
+• This demonstrates the concept without needing 1000 real decisions
+
+--- PAGE 17 ---
+AI-Driven Manufacturing Intelligence — Project Planning Document   |   Page 17
+10 | CONTINUOUS LEARNING & DECISION LOG
+How Our System Learns Without Complex ML
+Continuous learning is a required component of Track B. Our approach does not require deep learning or
+retraining models. It uses two simple but powerful mechanisms that together create a system that
+genuinely improves over time.
+Mechanism 1: Golden Signature Auto-Update
+After every completed batch, the system automatically scores it using the same weighted formula. It
+then compares that score to the current golden signature score for each preset. If the new batch score
+exceeds the current golden signature score: 1. System flags this as a "New Candidate Golden
+Signature" 2. Operator is notified on their dashboard 3. Operator can Accept (golden signature
+updates) or Reject (keep current) 4. Decision is logged with reasoning 5. If accepted, the new batch
+becomes the golden signature for that preset This means the system naturally raises its own bar over
+time.
+Mechanism 2: The Decision Log
+Every human decision made through the system is stored in a structured decision log. This log is the
+memory of the system. It does not just record what happened — it records the context, allowing future
+batches to benefit from past operator knowledge.
+Field
+Example Value
+Purpose
+Batch_ID
+T061
+Links decision to batch context
+Phase
+Drying
+Where in the process the
+decision occurred
+Sensor
+Temperature_C
+Which parameter triggered the
+recommendation
+Deviation_Percent
++22.4%
+Severity of the deviation at time
+of decision
+Recommendation
+Reduce temp toward 63.2°C
+What the system suggested
+Operator_Decision
+REJECTED
+Accept or Reject
+
+--- PAGE 18 ---
+AI-Driven Manufacturing Intelligence — Project Planning Document   |   Page 18
+Reason
+Raw material batch is wetter
+than usual
+Operator knowledge captured
+Outcome
+Quality Score: 84/100
+Was the operator right? System
+learns from outcome
+Timestamp
+2025-03-06 14:32
+Audit trail
+
+--- PAGE 19 ---
+AI-Driven Manufacturing Intelligence — Project Planning Document   |   Page 19
+11 | FULL SYSTEM COMPONENT OVERVIEW
+The Seven Components of Our System
+01
+Batch Scorer
+Processes both Excel files. Computes energy per batch from process data. Applies weighted
+quality scoring formula. Produces a ranked list of all 60 batches for each of the 4 presets.
+Input: Both Excel files → Output: Ranked batch list with scores
+02
+Golden Signature Store
+Stores the complete 3-layer golden signature for each of the 4 presets. Contains settings profile,
+process fingerprint (aggregated per phase), and outcome score. Updates when a new batch
+qualifies.
+Input: Batch Scorer output → Output: 4 golden signatures
+03
+Deviation Detector
+Compares live batch sensor readings to the relevant golden signature Layer 2. Computes
+deviation 
+percentage 
+per 
+sensor 
+per 
+phase. 
+Assigns 
+a 
+severity 
+band
+(Green/Yellow/Orange/Red) and triggers alerts accordingly.
+Input: Process data + Golden Signature → Output: Real-time deviation alerts
+04
+Correction Engine
+When a deviation is detected, generates a plain-language correction recommendation. States
+current value, golden value, deviation percentage, and specific action required. Includes
+historical context from previous similar deviations.
+Input: Deviation Detector output → Output: Correction recommendations
+05
+Human-in-the-Loop Panel
+Operator interface showing current alerts, recommended corrections, and action buttons.
+Accept/Reject functionality with reason capture. Preset reprioritisation selector. Real-time
+comparison view against golden signature.
+Input: Correction Engine + User input → Output: Operator decisions + Decision log entries
+
+--- PAGE 20 ---
+AI-Driven Manufacturing Intelligence — Project Planning Document   |   Page 20
+06
+Decision Log
+Persistent store of all operator decisions with full context. Tracks outcomes of accepted and
+rejected recommendations. Provides the foundation for continuous improvement and audit trails.
+Input: Human-in-the-Loop Panel → Output: Historical decision database
+07
+Pareto Visualiser
+Generates the quality vs. energy scatter plot for all 60 batches. Highlights Pareto-optimal
+batches. Marks golden signature batches for each preset. Primary visual for PDF submission
+and final presentation.
+Input: Batch Scorer output → Output: Pareto charts and visual reports

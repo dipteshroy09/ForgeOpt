@@ -1,0 +1,332 @@
+{
+  "preset_1": {
+    "preset_id": 1,
+    "preset_name": "Best Quality Only",
+    "golden_batch_id": "T019",
+    "layer1_settings": {
+      "Granulation_Time": 16.0,
+      "Binder_Amount": 8.6,
+      "Drying_Temp": 62.0,
+      "Drying_Time": 27.0,
+      "Compression_Force": 12.2,
+      "Machine_Speed": 165.0,
+      "Lubricant_Conc": 1.1,
+      "Moisture_Content": 2.0
+    },
+    "layer2_fingerprint": {
+      "Blending": {
+        "Temperature_C": 29.277089363496778,
+        "Pressure_Bar": 1.0102296202343832,
+        "Humidity_Percent": 34.929550838661946,
+        "Motor_Speed_RPM": 195.2849727722162,
+        "Compression_Force_kN": 0.0,
+        "Flow_Rate_LPM": 0.0,
+        "Power_Consumption_kW": 12.0308909069516,
+        "Vibration_mm_s": 3.52197141361297
+      },
+      "Coating": {
+        "Temperature_C": 39.95971181792707,
+        "Pressure_Bar": 0.9116315557675846,
+        "Humidity_Percent": 24.749240530343897,
+        "Motor_Speed_RPM": 120.30007665819726,
+        "Compression_Force_kN": 0.0,
+        "Flow_Rate_LPM": 2.9923897604772502,
+        "Power_Consumption_kW": 20.298256208454994,
+        "Vibration_mm_s": 2.574156765191355
+      },
+      "Compression": {
+        "Temperature_C": 28.01724204762912,
+        "Pressure_Bar": 0.9789086588653794,
+        "Humidity_Percent": 30.355144129607513,
+        "Motor_Speed_RPM": 49.90758874395847,
+        "Compression_Force_kN": 12.108226745951006,
+        "Flow_Rate_LPM": 0.0,
+        "Power_Consumption_kW": 44.54733280565902,
+        "Vibration_mm_s": 7.36410906264582
+      },
+      "Drying": {
+        "Temperature_C": 61.56174440728998,
+        "Pressure_Bar": 0.8078545975515018,
+        "Humidity_Percent": 40.619396238614826,
+        "Motor_Speed_RPM": 81.98041949041041,
+        "Compression_Force_kN": 0.0,
+        "Flow_Rate_LPM": 7.836866526237452,
+        "Power_Consumption_kW": 24.955012052250726,
+        "Vibration_mm_s": 2.281938248431318
+      },
+      "Granulation": {
+        "Temperature_C": 63.095418084231405,
+        "Pressure_Bar": 1.1670074712682932,
+        "Humidity_Percent": 55.05413094572438,
+        "Motor_Speed_RPM": 147.34617066579375,
+        "Compression_Force_kN": 0.0,
+        "Flow_Rate_LPM": 5.129177146902558,
+        "Power_Consumption_kW": 14.989133175457614,
+        "Vibration_mm_s": 3.128171046145481
+      },
+      "Milling": {
+        "Temperature_C": 34.5440247271937,
+        "Pressure_Bar": 1.010160596952876,
+        "Humidity_Percent": 38.893871722714415,
+        "Motor_Speed_RPM": 808.6496988450726,
+        "Compression_Force_kN": 0.0,
+        "Flow_Rate_LPM": 0.0,
+        "Power_Consumption_kW": 34.08364049124576,
+        "Vibration_mm_s": 10.18941777503969
+      },
+      "Preparation": {
+        "Temperature_C": 24.558467458247847,
+        "Pressure_Bar": 1.0226962900319216,
+        "Humidity_Percent": 45.456804806767416,
+        "Motor_Speed_RPM": 0.0,
+        "Compression_Force_kN": 0.0,
+        "Flow_Rate_LPM": 0.0,
+        "Power_Consumption_kW": 2.1685208806329404,
+        "Vibration_mm_s": 0.220020411571237
+      },
+      "Quality_Testing": {
+        "Temperature_C": 25.159926205294166,
+        "Pressure_Bar": 0.9842845792426073,
+        "Humidity_Percent": 45.27936119131778,
+        "Motor_Speed_RPM": 0.0,
+        "Compression_Force_kN": 0.0,
+        "Flow_Rate_LPM": 0.0,
+        "Power_Consumption_kW": 4.736855410144033,
+        "Vibration_mm_s": 0.7665917745400845
+      }
+    },
+    "layer3_outcome": {
+      "quality_metrics": {
+        "Dissolution_Rate": 91.1,
+        "Content_Uniformity": 98.9,
+        "Friability": 0.75,
+        "Disintegration_Time": 7.6,
+        "Hardness": 89.0
+      },
+      "total_energy_kwh": 99.30249872309976,
+      "quality_score": 63.67671342925007,
+      "energy_score": 41.03284458574342,
+      "combined_score": 63.67671342925007
+    }
+  },
+  "preset_2": {
+    "preset_id": 2,
+    "preset_name": "Best Quality + Lowest Energy",
+    "golden_batch_id": "T038",
+    "layer1_settings": {
+      "Granulation_Time": 17.0,
+      "Binder_Amount": 9.3,
+      "Drying_Temp": 58.0,
+      "Drying_Time": 30.0,
+      "Compression_Force": 11.0,
+      "Machine_Speed": 178.0,
+      "Lubricant_Conc": 1.2,
+      "Moisture_Content": 1.9
+    },
+    "layer2_fingerprint": {
+      "Blending": {
+        "Temperature_C": 30.106983378141752,
+        "Pressure_Bar": 0.9692671592415657,
+        "Humidity_Percent": 34.471397640673544,
+        "Motor_Speed_RPM": 202.9891410937916,
+        "Compression_Force_kN": 0.0,
+        "Flow_Rate_LPM": 0.0,
+        "Power_Consumption_kW": 12.17580915616658,
+        "Vibration_mm_s": 3.66312058819402
+      },
+      "Coating": {
+        "Temperature_C": 39.70818587571115,
+        "Pressure_Bar": 0.9364751791915082,
+        "Humidity_Percent": 25.105781710314346,
+        "Motor_Speed_RPM": 123.08220600090128,
+        "Compression_Force_kN": 0.0,
+        "Flow_Rate_LPM": 3.048687982117508,
+        "Power_Consumption_kW": 20.079631923974386,
+        "Vibration_mm_s": 2.408691496973149
+      },
+      "Compression": {
+        "Temperature_C": 28.34561630696491,
+        "Pressure_Bar": 1.0166333338602827,
+        "Humidity_Percent": 30.146928660897938,
+        "Motor_Speed_RPM": 50.10980920134451,
+        "Compression_Force_kN": 11.065877922139558,
+        "Flow_Rate_LPM": 0.0,
+        "Power_Consumption_kW": 45.27861509819105,
+        "Vibration_mm_s": 7.186245258618199
+      },
+      "Drying": {
+        "Temperature_C": 57.77481130688584,
+        "Pressure_Bar": 0.793402428933986,
+        "Humidity_Percent": 39.73686068509801,
+        "Motor_Speed_RPM": 79.75335206880759,
+        "Compression_Force_kN": 0.0,
+        "Flow_Rate_LPM": 7.886418093987359,
+        "Power_Consumption_kW": 24.25832187525197,
+        "Vibration_mm_s": 2.306033374432804
+      },
+      "Granulation": {
+        "Temperature_C": 64.21233694362198,
+        "Pressure_Bar": 1.2828904456102093,
+        "Humidity_Percent": 54.63229836796839,
+        "Motor_Speed_RPM": 150.9404659606828,
+        "Compression_Force_kN": 0.0,
+        "Flow_Rate_LPM": 5.18005164591667,
+        "Power_Consumption_kW": 15.055249044434843,
+        "Vibration_mm_s": 2.851001687050598
+      },
+      "Milling": {
+        "Temperature_C": 34.83002346362866,
+        "Pressure_Bar": 0.9782258601143322,
+        "Humidity_Percent": 39.66390221830523,
+        "Motor_Speed_RPM": 816.7083803476477,
+        "Compression_Force_kN": 0.0,
+        "Flow_Rate_LPM": 0.0,
+        "Power_Consumption_kW": 36.26423944996564,
+        "Vibration_mm_s": 9.486994428952162
+      },
+      "Preparation": {
+        "Temperature_C": 25.533336751381114,
+        "Pressure_Bar": 0.9722478482517302,
+        "Humidity_Percent": 43.492119019968015,
+        "Motor_Speed_RPM": 0.0,
+        "Compression_Force_kN": 0.0,
+        "Flow_Rate_LPM": 0.0,
+        "Power_Consumption_kW": 1.9396330391608163,
+        "Vibration_mm_s": 0.1654097602656043
+      },
+      "Quality_Testing": {
+        "Temperature_C": 24.829074737759885,
+        "Pressure_Bar": 1.0120157020999851,
+        "Humidity_Percent": 45.65084891806848,
+        "Motor_Speed_RPM": 0.0,
+        "Compression_Force_kN": 0.0,
+        "Flow_Rate_LPM": 0.0,
+        "Power_Consumption_kW": 5.065702451519132,
+        "Vibration_mm_s": 0.6846139554142343
+      }
+    },
+    "layer3_outcome": {
+      "quality_metrics": {
+        "Dissolution_Rate": 91.8,
+        "Content_Uniformity": 97.4,
+        "Friability": 0.81,
+        "Disintegration_Time": 6.6,
+        "Hardness": 84.0
+      },
+      "total_energy_kwh": 73.07996832417032,
+      "quality_score": 62.37644326772784,
+      "energy_score": 100.0,
+      "combined_score": 77.42586596063671
+    }
+  },
+  "preset_3": {
+    "preset_id": 3,
+    "preset_name": "Lowest Energy Only",
+    "golden_batch_id": "T038",
+    "layer1_settings": {
+      "Granulation_Time": 17.0,
+      "Binder_Amount": 9.3,
+      "Drying_Temp": 58.0,
+      "Drying_Time": 30.0,
+      "Compression_Force": 11.0,
+      "Machine_Speed": 178.0,
+      "Lubricant_Conc": 1.2,
+      "Moisture_Content": 1.9
+    },
+    "layer2_fingerprint": {
+      "Blending": {
+        "Temperature_C": 30.106983378141752,
+        "Pressure_Bar": 0.9692671592415657,
+        "Humidity_Percent": 34.471397640673544,
+        "Motor_Speed_RPM": 202.9891410937916,
+        "Compression_Force_kN": 0.0,
+        "Flow_Rate_LPM": 0.0,
+        "Power_Consumption_kW": 12.17580915616658,
+        "Vibration_mm_s": 3.66312058819402
+      },
+      "Coating": {
+        "Temperature_C": 39.70818587571115,
+        "Pressure_Bar": 0.9364751791915082,
+        "Humidity_Percent": 25.105781710314346,
+        "Motor_Speed_RPM": 123.08220600090128,
+        "Compression_Force_kN": 0.0,
+        "Flow_Rate_LPM": 3.048687982117508,
+        "Power_Consumption_kW": 20.079631923974386,
+        "Vibration_mm_s": 2.408691496973149
+      },
+      "Compression": {
+        "Temperature_C": 28.34561630696491,
+        "Pressure_Bar": 1.0166333338602827,
+        "Humidity_Percent": 30.146928660897938,
+        "Motor_Speed_RPM": 50.10980920134451,
+        "Compression_Force_kN": 11.065877922139558,
+        "Flow_Rate_LPM": 0.0,
+        "Power_Consumption_kW": 45.27861509819105,
+        "Vibration_mm_s": 7.186245258618199
+      },
+      "Drying": {
+        "Temperature_C": 57.77481130688584,
+        "Pressure_Bar": 0.793402428933986,
+        "Humidity_Percent": 39.73686068509801,
+        "Motor_Speed_RPM": 79.75335206880759,
+        "Compression_Force_kN": 0.0,
+        "Flow_Rate_LPM": 7.886418093987359,
+        "Power_Consumption_kW": 24.25832187525197,
+        "Vibration_mm_s": 2.306033374432804
+      },
+      "Granulation": {
+        "Temperature_C": 64.21233694362198,
+        "Pressure_Bar": 1.2828904456102093,
+        "Humidity_Percent": 54.63229836796839,
+        "Motor_Speed_RPM": 150.9404659606828,
+        "Compression_Force_kN": 0.0,
+        "Flow_Rate_LPM": 5.18005164591667,
+        "Power_Consumption_kW": 15.055249044434843,
+        "Vibration_mm_s": 2.851001687050598
+      },
+      "Milling": {
+        "Temperature_C": 34.83002346362866,
+        "Pressure_Bar": 0.9782258601143322,
+        "Humidity_Percent": 39.66390221830523,
+        "Motor_Speed_RPM": 816.7083803476477,
+        "Compression_Force_kN": 0.0,
+        "Flow_Rate_LPM": 0.0,
+        "Power_Consumption_kW": 36.26423944996564,
+        "Vibration_mm_s": 9.486994428952162
+      },
+      "Preparation": {
+        "Temperature_C": 25.533336751381114,
+        "Pressure_Bar": 0.9722478482517302,
+        "Humidity_Percent": 43.492119019968015,
+        "Motor_Speed_RPM": 0.0,
+        "Compression_Force_kN": 0.0,
+        "Flow_Rate_LPM": 0.0,
+        "Power_Consumption_kW": 1.9396330391608163,
+        "Vibration_mm_s": 0.1654097602656043
+      },
+      "Quality_Testing": {
+        "Temperature_C": 24.829074737759885,
+        "Pressure_Bar": 1.0120157020999851,
+        "Humidity_Percent": 45.65084891806848,
+        "Motor_Speed_RPM": 0.0,
+        "Compression_Force_kN": 0.0,
+        "Flow_Rate_LPM": 0.0,
+        "Power_Consumption_kW": 5.065702451519132,
+        "Vibration_mm_s": 0.6846139554142343
+      }
+    },
+    "layer3_outcome": {
+      "quality_metrics": {
+        "Dissolution_Rate": 91.8,
+        "Content_Uniformity": 97.4,
+        "Friability": 0.81,
+        "Disintegration_Time": 6.6,
+        "Hardness": 84.0
+      },
+      "total_energy_kwh": 73.07996832417032,
+      "quality_score": 62.37644326772784,
+      "energy_score": 100.0,
+      "combined_score": 100.0
+    }
+  }
+}

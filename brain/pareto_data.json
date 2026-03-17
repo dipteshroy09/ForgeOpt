@@ -1,0 +1,362 @@
+[
+  {
+    "batch_id": "T001",
+    "quality_score": 59.845791716116665,
+    "energy_score": 91.77423698687663,
+    "total_energy_kwh": 76.73794231241305
+  },
+  {
+    "batch_id": "T002",
+    "quality_score": 56.75759969575758,
+    "energy_score": 66.14312136598366,
+    "total_energy_kwh": 88.13602831140027
+  },
+  {
+    "batch_id": "T003",
+    "quality_score": 62.12092688717227,
+    "energy_score": 38.7624447153499,
+    "total_energy_kwh": 100.31213924587671
+  },
+  {
+    "batch_id": "T004",
+    "quality_score": 60.175547494552134,
+    "energy_score": 79.08069660357832,
+    "total_energy_kwh": 82.3827245006107
+  },
+  {
+    "batch_id": "T005",
+    "quality_score": 50.73334973429061,
+    "energy_score": 33.07153274512236,
+    "total_energy_kwh": 102.84287200869272
+  },
+  {
+    "batch_id": "T006",
+    "quality_score": 59.56398214192322,
+    "energy_score": 71.40997708482365,
+    "total_energy_kwh": 85.79387218696449
+  },
+  {
+    "batch_id": "T007",
+    "quality_score": 55.64632101608616,
+    "energy_score": 82.14786033972875,
+    "total_energy_kwh": 81.01876529748026
+  },
+  {
+    "batch_id": "T008",
+    "quality_score": 58.02897115266765,
+    "energy_score": 38.781021362257164,
+    "total_energy_kwh": 100.30387826254092
+  },
+  {
+    "batch_id": "T009",
+    "quality_score": 61.80444958380765,
+    "energy_score": 42.5516177568652,
+    "total_energy_kwh": 98.62710450798063
+  },
+  {
+    "batch_id": "T010",
+    "quality_score": 60.65079350050975,
+    "energy_score": 90.23117092268932,
+    "total_energy_kwh": 77.4241395096739
+  },
+  {
+    "batch_id": "T011",
+    "quality_score": 53.745869484497774,
+    "energy_score": 78.55780123556436,
+    "total_energy_kwh": 82.6152546199098
+  },
+  {
+    "batch_id": "T012",
+    "quality_score": 63.238585754777766,
+    "energy_score": 25.10549127333563,
+    "total_energy_kwh": 106.38534854814195
+  },
+  {
+    "batch_id": "T013",
+    "quality_score": 59.16123224937173,
+    "energy_score": 57.14178760537838,
+    "total_energy_kwh": 92.1388964591033
+  },
+  {
+    "batch_id": "T014",
+    "quality_score": 56.00195878605304,
+    "energy_score": 0.0,
+    "total_energy_kwh": 117.54969085819911
+  },
+  {
+    "batch_id": "T015",
+    "quality_score": 56.51008715850666,
+    "energy_score": 89.29502766988992,
+    "total_energy_kwh": 77.84043981671483
+  },
+  {
+    "batch_id": "T016",
+    "quality_score": 60.40587345251117,
+    "energy_score": 25.086377404910394,
+    "total_energy_kwh": 106.39384843239617
+  },
+  {
+    "batch_id": "T017",
+    "quality_score": 55.921846556810856,
+    "energy_score": 89.39351987107531,
+    "total_energy_kwh": 77.79664060813003
+  },
+  {
+    "batch_id": "T018",
+    "quality_score": 61.14884680329648,
+    "energy_score": 35.43670971199453,
+    "total_energy_kwh": 101.79108437408591
+  },
+  {
+    "batch_id": "T019",
+    "quality_score": 63.67671342925007,
+    "energy_score": 41.03284458574342,
+    "total_energy_kwh": 99.30249872309976
+  },
+  {
+    "batch_id": "T020",
+    "quality_score": 47.57933574485116,
+    "energy_score": 45.9258891585204,
+    "total_energy_kwh": 97.12657537811948
+  },
+  {
+    "batch_id": "T021",
+    "quality_score": 63.03135009108812,
+    "energy_score": 20.708774873577834,
+    "total_energy_kwh": 108.34055613172238
+  },
+  {
+    "batch_id": "T022",
+    "quality_score": 60.68742024750595,
+    "energy_score": 41.62300364883658,
+    "total_energy_kwh": 99.04005662523281
+  },
+  {
+    "batch_id": "T023",
+    "quality_score": 61.81929637869081,
+    "energy_score": 83.70238930319712,
+    "total_energy_kwh": 80.32747058071476
+  },
+  {
+    "batch_id": "T024",
+    "quality_score": 58.99610939456282,
+    "energy_score": 93.72812871073323,
+    "total_energy_kwh": 75.86905208419867
+  },
+  {
+    "batch_id": "T025",
+    "quality_score": 54.60907728823841,
+    "energy_score": 63.46466759899012,
+    "total_energy_kwh": 89.32712926978454
+  },
+  {
+    "batch_id": "T026",
+    "quality_score": 55.052631192660755,
+    "energy_score": 73.48619598148944,
+    "total_energy_kwh": 84.87058340441814
+  },
+  {
+    "batch_id": "T027",
+    "quality_score": 63.01429834514077,
+    "energy_score": 86.43624955996764,
+    "total_energy_kwh": 79.11173051006082
+  },
+  {
+    "batch_id": "T028",
+    "quality_score": 57.9316324948059,
+    "energy_score": 71.20715325908371,
+    "total_energy_kwh": 85.88406737950395
+  },
+  {
+    "batch_id": "T029",
+    "quality_score": 57.40695568469296,
+    "energy_score": 16.980988279333026,
+    "total_energy_kwh": 109.99829248684377
+  },
+  {
+    "batch_id": "T030",
+    "quality_score": 61.54754020348491,
+    "energy_score": 40.07543389033489,
+    "total_energy_kwh": 99.72825660285905
+  },
+  {
+    "batch_id": "T031",
+    "quality_score": 50.20350614749854,
+    "energy_score": 67.45794450538531,
+    "total_energy_kwh": 87.55133010949514
+  },
+  {
+    "batch_id": "T032",
+    "quality_score": 61.64528216002887,
+    "energy_score": 30.431327964961678,
+    "total_energy_kwh": 104.01696374876035
+  },
+  {
+    "batch_id": "T033",
+    "quality_score": 57.57262367876795,
+    "energy_score": 71.26264806001569,
+    "total_energy_kwh": 85.85938899550868
+  },
+  {
+    "batch_id": "T034",
+    "quality_score": 59.517403975607024,
+    "energy_score": 52.623460121317,
+    "total_energy_kwh": 94.14818415444415
+  },
+  {
+    "batch_id": "T035",
+    "quality_score": 59.91174910956009,
+    "energy_score": 24.704345726727368,
+    "total_energy_kwh": 106.56373685967625
+  },
+  {
+    "batch_id": "T036",
+    "quality_score": 51.99884339219246,
+    "energy_score": 32.248857858409416,
+    "total_energy_kwh": 103.20871324817111
+  },
+  {
+    "batch_id": "T037",
+    "quality_score": 52.886040205337125,
+    "energy_score": 29.704941894786,
+    "total_energy_kwh": 104.3399856186933
+  },
+  {
+    "batch_id": "T038",
+    "quality_score": 62.37644326772784,
+    "energy_score": 100.0,
+    "total_energy_kwh": 73.07996832417032
+  },
+  {
+    "batch_id": "T039",
+    "quality_score": 58.4080001457691,
+    "energy_score": 32.53125797509726,
+    "total_energy_kwh": 103.08313069984425
+  },
+  {
+    "batch_id": "T040",
+    "quality_score": 55.37236295693182,
+    "energy_score": 55.12038477703201,
+    "total_energy_kwh": 93.03780868816393
+  },
+  {
+    "batch_id": "T041",
+    "quality_score": 61.59739999824549,
+    "energy_score": 34.71341592044593,
+    "total_energy_kwh": 102.11273111629343
+  },
+  {
+    "batch_id": "T042",
+    "quality_score": 51.51645520545227,
+    "energy_score": 58.322100973920456,
+    "total_energy_kwh": 91.61401437908059
+  },
+  {
+    "batch_id": "T043",
+    "quality_score": 62.58978497946343,
+    "energy_score": 18.05621141073759,
+    "total_energy_kwh": 109.52014374368646
+  },
+  {
+    "batch_id": "T044",
+    "quality_score": 59.54798122691838,
+    "energy_score": 82.93196779745914,
+    "total_energy_kwh": 80.67007488665892
+  },
+  {
+    "batch_id": "T045",
+    "quality_score": 48.648859050513735,
+    "energy_score": 6.840757274310965,
+    "total_energy_kwh": 114.50762507908664
+  },
+  {
+    "batch_id": "T046",
+    "quality_score": 54.48365149850062,
+    "energy_score": 94.05526750640914,
+    "total_energy_kwh": 75.72357436946044
+  },
+  {
+    "batch_id": "T047",
+    "quality_score": 62.51582374271538,
+    "energy_score": 39.463381682070704,
+    "total_energy_kwh": 100.00043452163753
+  },
+  {
+    "batch_id": "T048",
+    "quality_score": 57.71325774268168,
+    "energy_score": 88.984552213053,
+    "total_energy_kwh": 77.97850739090647
+  },
+  {
+    "batch_id": "T049",
+    "quality_score": 59.199479727548784,
+    "energy_score": 69.69157069104955,
+    "total_energy_kwh": 86.55804274228285
+  },
+  {
+    "batch_id": "T050",
+    "quality_score": 60.7561675806073,
+    "energy_score": 17.816823063903833,
+    "total_energy_kwh": 109.62659907730223
+  },
+  {
+    "batch_id": "T051",
+    "quality_score": 45.0,
+    "energy_score": 91.20025020462148,
+    "total_energy_kwh": 76.99319264186391
+  },
+  {
+    "batch_id": "T052",
+    "quality_score": 63.65051838331648,
+    "energy_score": 42.05286029327259,
+    "total_energy_kwh": 98.84890056815803
+  },
+  {
+    "batch_id": "T053",
+    "quality_score": 56.39653914151732,
+    "energy_score": 28.773645698317896,
+    "total_energy_kwh": 104.75413045323263
+  },
+  {
+    "batch_id": "T054",
+    "quality_score": 58.95631415861022,
+    "energy_score": 13.542029101196553,
+    "total_energy_kwh": 111.52758809141957
+  },
+  {
+    "batch_id": "T055",
+    "quality_score": 59.13889996147293,
+    "energy_score": 82.96307086020714,
+    "total_energy_kwh": 80.65624344095531
+  },
+  {
+    "batch_id": "T056",
+    "quality_score": 45.0,
+    "energy_score": 22.401417841186294,
+    "total_energy_kwh": 107.58784250053515
+  },
+  {
+    "batch_id": "T057",
+    "quality_score": 53.309850807493355,
+    "energy_score": 59.997232982961265,
+    "total_energy_kwh": 90.86908782258143
+  },
+  {
+    "batch_id": "T058",
+    "quality_score": 62.98082479787659,
+    "energy_score": 81.26583497067405,
+    "total_energy_kwh": 81.41099953177863
+  },
+  {
+    "batch_id": "T059",
+    "quality_score": 59.18627185408341,
+    "energy_score": 38.62772822322827,
+    "total_energy_kwh": 100.37204729613077
+  },
+  {
+    "batch_id": "T060",
+    "quality_score": 53.022497182068086,
+    "energy_score": 82.37172807705679,
+    "total_energy_kwh": 80.91921193584727
+  }
+]

@@ -1,0 +1,74 @@
+[
+  {
+    "id": "dec-001",
+    "timestamp": "2026-03-01T10:15:00Z",
+    "batch_id": "T012",
+    "phase": "Drying",
+    "sensor": "Temperature_C",
+    "deviation_percent": "+20.5",
+    "recommendation": "Reduce temperature toward 63.2\u00b0C",
+    "operator_decision": "ACCEPTED",
+    "reason": "",
+    "outcome_score": "88/100"
+  },
+  {
+    "id": "dec-002",
+    "timestamp": "2026-03-02T14:22:00Z",
+    "batch_id": "T018",
+    "phase": "Granulation",
+    "sensor": "Motor_Speed_RPM",
+    "deviation_percent": "-18.2",
+    "recommendation": "Increase motor speed toward 145 RPM",
+    "operator_decision": "REJECTED",
+    "reason": "Raw material batch is wetter than usual",
+    "outcome_score": "84/100"
+  },
+  {
+    "id": "dec-003",
+    "timestamp": "2026-03-03T09:45:00Z",
+    "batch_id": "T025",
+    "phase": "Compression",
+    "sensor": "Compression_Force_kN",
+    "deviation_percent": "+24.7",
+    "recommendation": "Reduce compression force toward 18.5 kN",
+    "operator_decision": "ACCEPTED",
+    "reason": "",
+    "outcome_score": "91/100"
+  },
+  {
+    "id": "dec-004",
+    "timestamp": "2026-03-04T11:30:00Z",
+    "batch_id": "T038",
+    "phase": "Drying",
+    "sensor": "Temperature_C",
+    "deviation_percent": "-22.1",
+    "recommendation": "Increase temperature toward 63.2\u00b0C",
+    "operator_decision": "REJECTED",
+    "reason": "Scheduled maintenance already planned for heater",
+    "outcome_score": "79/100"
+  },
+  {
+    "id": "dec-005",
+    "timestamp": "2026-03-05T16:05:00Z",
+    "batch_id": "T055",
+    "phase": "All",
+    "sensor": "New Golden Signature",
+    "deviation_percent": "N/A",
+    "recommendation": "Accept Batch T055 as new Golden Signature for Preset 2",
+    "operator_decision": "ACCEPTED",
+    "reason": "Improved Quality score by 2% while reducing energy.",
+    "outcome_score": "95/100"
+  },
+  {
+    "id": "dec-006",
+    "timestamp": "2026-03-06T08:10:00Z",
+    "batch_id": "T059",
+    "phase": "Granulation",
+    "sensor": "Flow_Rate_LPM",
+    "deviation_percent": "+16.8",
+    "recommendation": "Reduce flow rate toward 4.2 LPM",
+    "operator_decision": "ACCEPTED",
+    "reason": "",
+    "outcome_score": "Pending"
+  }
+]

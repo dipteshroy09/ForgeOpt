@@ -1,0 +1,200 @@
+======================================================================
+STAGE 1 — RAW DATA CHECKS
+======================================================================
+
+[Production File]
+  [PASS]: Exactly 60 rows loaded (got 60)
+  [PASS]: No duplicate Batch IDs (60 unique out of 60)
+  [PASS]: No column has all null values (all-null cols: [])
+  [FAIL]: Hardness range is Newtons [40.0 - 135.0] (expect 40-120)
+  [PASS]: Friability range [0.290 - 1.920] (expect 0-2)
+  [PASS]: Dissolution Rate range [81.2 - 99.9] (expect 70-100)
+
+[Process File]
+  [PASS]: Exactly 60 sheets loaded (got 60)
+  [PASS]: All 8 phases present in Batch_T001: ['Blending', 'Coating', 'Compression', 'Drying', 'Granulation', 'Milling', 'Preparation', 'Quality_Testing']
+  [PASS]: All 60 sheets have the same 11 columns (bad: [])
+  [PASS]: No negative Power_Consumption_kW values in any sheet
+
+======================================================================
+STAGE 2 — ENERGY CALCULATION CHECKS
+======================================================================
+
+  T001 manual energy = 76.7379 kWh
+  T001 JSON energy   = 76.7379 kWh
+  [PASS]: T001 energy matches manual calc (diff=0.000000)
+
+  Energy range: min=73.08 kWh, max=117.55 kWh
+  [PASS]: Min and max energy are different (no div-by-zero risk)
+  [PASS]: No batch has zero energy
+  [PASS]: All energy scores in [0, 100]
+  [PASS]: No NaN energy scores
+
+======================================================================
+STAGE 3 — QUALITY SCORING CHECKS
+======================================================================
+
+[Individual Metric Score Samples (first 5 batches)]
+  Batch        Diss       CU      Fri     DisT     Hard
+  T001        43.32    53.94    77.91    62.42    84.21
+  T002        35.83    69.09    90.18    36.24    52.63
+  T003        55.08    45.45    69.94    71.81    94.74
+  T004        67.38    36.97    59.51    80.54    67.37
+  T005        20.86    83.03    94.48    18.12    21.05
+
+[Friability Inversion Check]
+  Lowest raw Friability: Batch T051 = 0.2900
+    → Normalized Friability score: 100.00
+  Highest raw Friability: Batch T056 = 1.9200
+    → Normalized Friability score: 0.00
+  [PASS]: Lowest raw Friability has highest Friability SCORE (inversion works)
+
+[Disintegration Time Inversion Check]
+  Lowest raw DisTime: Batch T056 = 2.60
+    → Normalized DisTime score: 100.00
+  Highest raw DisTime: Batch T051 = 17.50
+    → Normalized DisTime score: 0.00
+  [PASS]: Lowest raw DisTime has highest DisTime SCORE (inversion works)
+
+[Hardness Range-Based Check]
+  Hardness midpoint: 87.50 N
+  Closest to midpoint: Batch T058 = 87.00 N → score 98.95
+  Highest raw Hardness: Batch T051 = 135.00 N → score 0.00
+  [PASS]: Batch closest to midpoint scores higher than batch with max Hardness
+  [PASS]: All 60 quality scores in [0, 100]
+  [PASS]: No NaN quality scores
+  [PASS]: Quality scores have good variance (59 unique out of 60)
+  [WARN]: Highest Dissolution batch (T056) ranks #59 in quality (expect top 15)
+
+======================================================================
+STAGE 4 — PRESET RANKING CHECKS
+======================================================================
+
+  [Preset 1: Best Quality Only] Top 5:
+    #1 T019 — combined=63.68 (Q=63.68, E=41.03)
+    #2 T052 — combined=63.65 (Q=63.65, E=42.05)
+    #3 T012 — combined=63.24 (Q=63.24, E=25.11)
+    #4 T021 — combined=63.03 (Q=63.03, E=20.71)
+    #5 T027 — combined=63.01 (Q=63.01, E=86.44)
+  [PASS]: Preset 1 JSON golden (T019) matches recomputed top (T019)
+
+  [Preset 2: Best Quality + Lowest Energy] Top 5:
+    #1 T038 — combined=77.43 (Q=62.38, E=100.00)
+    #2 T024 — combined=72.89 (Q=59.00, E=93.73)
+    #3 T001 — combined=72.62 (Q=59.85, E=91.77)
+    #4 T010 — combined=72.48 (Q=60.65, E=90.23)
+    #5 T027 — combined=72.38 (Q=63.01, E=86.44)
+  [PASS]: Preset 2 JSON golden (T038) matches recomputed top (T038)
+
+  [Preset 3: Lowest Energy Only] Top 5:
+    #1 T038 — combined=100.00 (Q=62.38, E=100.00)
+    #2 T046 — combined=94.06 (Q=54.48, E=94.06)
+    #3 T024 — combined=93.73 (Q=59.00, E=93.73)
+    #4 T001 — combined=91.77 (Q=59.85, E=91.77)
+    #5 T051 — combined=91.20 (Q=45.00, E=91.20)
+  [PASS]: Preset 3 JSON golden (T038) matches recomputed top (T038)
+  [PASS]: Preset 1 winner (T019) ≠ Preset 3 winner (T038)
+  [WARN]: Preset 2 winner (T038) is different from both P1 (T019) and P3 (T038)
+
+  >>> Preset 2 Golden Batch: T038 (remember for simulation check)
+
+======================================================================
+STAGE 5 — GOLDEN SIGNATURE CHECKS
+======================================================================
+
+  [Preset 1 — Golden Batch T019]
+  [PASS]:   Layer 1 has all 8 settings keys
+  [PASS]:   Layer 1 no null values (nulls: [])
+  [PASS]:   Layer 2 has all 8 phases
+  [PASS]:   Layer 2 each phase has all 8 sensor values
+  [PASS]:   Layer 3 exists
+  [PASS]:   Layer 3 has quality and energy scores
+  [PASS]:   Layer 3 quality_score matches all_batches (63.6767 vs 63.6767)
+  [PASS]:   Layer 3 energy_score matches all_batches (41.0328 vs 41.0328)
+
+  [Preset 2 — Golden Batch T038]
+  [PASS]:   Layer 1 has all 8 settings keys
+  [PASS]:   Layer 1 no null values (nulls: [])
+  [PASS]:   Layer 2 has all 8 phases
+  [PASS]:   Layer 2 each phase has all 8 sensor values
+  [PASS]:   Layer 3 exists
+  [PASS]:   Layer 3 has quality and energy scores
+  [PASS]:   Layer 3 quality_score matches all_batches (62.3764 vs 62.3764)
+  [PASS]:   Layer 3 energy_score matches all_batches (100.0000 vs 100.0000)
+
+  [Preset 3 — Golden Batch T038]
+  [PASS]:   Layer 1 has all 8 settings keys
+  [PASS]:   Layer 1 no null values (nulls: [])
+  [PASS]:   Layer 2 has all 8 phases
+  [PASS]:   Layer 2 each phase has all 8 sensor values
+  [PASS]:   Layer 3 exists
+  [PASS]:   Layer 3 has quality and energy scores
+  [PASS]:   Layer 3 quality_score matches all_batches (62.3764 vs 62.3764)
+  [PASS]:   Layer 3 energy_score matches all_batches (100.0000 vs 100.0000)
+
+======================================================================
+STAGE 6 — JSON OUTPUT CHECKS
+======================================================================
+
+  [all_batches.json]
+  [PASS]: Exactly 60 entries (got 60)
+
+  [pareto_data.json]
+  [PASS]: Exactly 60 entries (got 60)
+  [PASS]: Every pareto entry has numeric quality_score, energy_score, total_energy_kwh
+
+  [golden_signatures.json]
+  [PASS]: Has preset_1, preset_2, preset_3 (Preset 4 is dynamic in React)
+
+  [simulation_batch.json]
+  [PASS]: Simulation batch (T005) is NOT the Preset 2 golden (T038)
+  [PASS]: Phase column is present in simulation data
+  [PASS]: Row count is 247 (expect 195-286)
+  First row: minute=0, phase=Preparation
+  Last row:  minute=246, phase=Quality_Testing
+
+  [initial_decision_log.json]
+  [PASS]: Exactly 6 entries (got 6)
+  Accepts: 4, Rejects: 2
+  [PASS]: At least 2 accepts and 2 rejects
+  [PASS]: Contains a golden signature update scenario
+
+  [impact_report.json]
+  Total actual energy:     5602.16 kWh
+  If all used golden P2:   4384.80 kWh
+  Energy saved:            1217.36 kWh
+  Projected 1000 batches:  20289.32 kWh
+  CO2 equivalent:          8115.73 kg
+  Cost savings:            $3043.40
+  [PASS]: Energy saved is positive (golden uses less than average)
+
+======================================================================
+STAGE 7 — SIMULATION BATCH CHECK
+======================================================================
+
+  Simulation Batch: T005
+  Minute-by-minute deviation bands vs Preset 2 Golden:
+    GREEN  (0-10%):   685
+    YELLOW (10-20%):  219
+    ORANGE (20-30%):  72
+    RED    (30%+):    100
+  [PASS]: At least one YELLOW deviation exists
+  [PASS]: At least one ORANGE deviation exists
+  [PASS]: At least one RED deviation exists
+
+  Drying Phase Temperature Spot Check:
+    Golden Drying Temp: 57.77°C
+    Sim Drying Temps: min=67.03, max=74.71, avg=70.64
+    Max temperature deviation: 29.3%
+
+======================================================================
+FINAL SUMMARY
+======================================================================
+
+  Total ERRORS:   1
+    [X] Hardness range is Newtons [40.0 - 135.0] (expect 40-120)
+  Total WARNINGS: 2
+    [!] Highest Dissolution batch (T056) ranks #59 in quality (expect top 15)
+    [!] Preset 2 winner (T038) is different from both P1 (T019) and P3 (T038)
+
+  1 CRITICAL ISSUES NEED FIXING before proceeding to React.

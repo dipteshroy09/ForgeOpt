@@ -1,0 +1,34 @@
+﻿======================================================================
+STAGE 1 ù RAW DATA CHECKS
+======================================================================
+
+[Production File]
+python : Traceback (most recent call last):
+At line:1 char:1
++ python brain\verify_all.py 2>&1 | Out-File -Encoding 
+utf8 brain\verif ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Traceback  
+   (most recent call last)::String) [], RemoteExceptio  
+  n
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  File "C:\Users\arpan\OneDrive\Documents\code\Unstop\br
+ain\verify_all.py", line 50, in <module>
+    check(len(prod_df) == 60, f"Exactly 60 rows loaded 
+(got {len(prod_df)})")
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\arpan\OneDrive\Documents\code\Unstop\br
+ain\verify_all.py", line 24, in check
+    print(f"  {PASS}: {label}")
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\encodings\cp1252.py", line 19, 
+in encode
+    return codecs.charmap_encode(input,self.errors,encod
+ing_table)[0]
+           
+~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode 
+character '\u2705' in position 2: character maps to 
+<undefined>

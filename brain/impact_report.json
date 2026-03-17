@@ -1,0 +1,8 @@
+{
+  "total_energy_actual_kwh": 5602.157141072698,
+  "total_energy_if_golden2_kwh": 4384.7980994502195,
+  "energy_saved_kwh": 1217.3590416224788,
+  "projected_savings_1000_batches_kwh": 20289.317360374647,
+  "co2_equivalent_kg": 8115.726944149859,
+  "cost_savings_usd": 3043.397604056197
+}
